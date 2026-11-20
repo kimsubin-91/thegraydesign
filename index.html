@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the Gray Design Studio</title>
+<meta name="description" content="바라시는 공간을 함께 실현합니다. 주거·상업 공간 설계와 시공, 예약제로 운영하는 더그레이 디자인 스튜디오.">
+<meta property="og:title" content="the Gray Design Studio">
+<meta property="og:description" content="바라시는 공간을 함께 실현합니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thegraydesign.com/">
+<meta property="og:image" content="https://thegraydesign.com/img/p1/p1-01.jpg">
+<link rel="canonical" href="https://thegraydesign.com/">
+<meta name="theme-color" content="#EDEAE4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Mrs+Saint+Delafield&family=Gowun+Batang:wght@400;700&display=swap">
+<style>
+  :root{
+    --ground:#EDEAE4; --paper:#F7F5F1; --ink:#1E1E1C; --muted:#625F5A; --line:#D9D4CB; --gray:#A6A097;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:'Gowun Batang',serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .label{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+
+  /* logo (C · thin + signature) */
+  .logo{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink)}
+  .logo .row{display:flex;align-items:center}
+  .logo .the{font-family:'Jost',sans-serif;font-weight:200;line-height:1}
+  .logo .gray{font-family:'Mrs Saint Delafield',cursive;line-height:1;position:relative}
+  .logo .ds{font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.7em;padding-left:.7em}
+
+  header.top{position:sticky;top:0;z-index:5;background:rgba(237,234,228,.92);backdrop-filter:blur(6px);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.top.scrolled{border-bottom-color:var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  header.top .logo{flex-direction:row;align-items:center}
+  header.top .the{font-size:22px}
+  header.top .gray{font-size:44px;margin-left:-4px;top:4px}
+  header.top nav{display:flex;gap:28px}
+  header.top nav a{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.24em;text-decoration:none;color:var(--muted)}
+  header.top nav a:hover{color:var(--ink)}
+
+  .hero{min-height:calc(100vh - 68px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 96px}
+  .hero .the{font-size:clamp(52px,9vw,96px)}
+  .hero .gray{font-size:clamp(104px,19vw,190px);margin-left:-.1em;top:.08em}
+  .hero .ds{margin-top:4px;font-size:clamp(10px,1.4vw,12px)}
+  .hero .statement{margin:72px 0 0;font-size:clamp(20px,2.6vw,26px);line-height:1.7;font-weight:400}
+  .hero .sub{margin:20px 0 0;font-size:15px;line-height:1.9;color:var(--muted)}
+  .hero .scroll{margin-top:64px}
+
+  .intro{border-top:1px solid var(--line);padding:120px 0}
+  .intro .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:64px;align-items:start}
+  .intro h2{margin:12px 0 0;font-size:27px;font-weight:400;line-height:1.6}
+  .intro p{margin:0 0 18px;font-size:16px;line-height:2;color:#3A3835}
+  .intro .ground{display:flex;gap:16px;margin-top:36px;align-items:center}
+  .mark{position:relative;width:44px;height:44px;background:var(--gray);flex:none}
+  .mark i{position:absolute;right:-9px;top:-9px;width:20px;height:20px;display:block}
+  .intro .ground span{font-size:14px;color:var(--muted);line-height:1.7}
+
+  .works-head{border-top:1px solid var(--line);padding:120px 0 24px}
+  .works-head h2{margin:12px 0 0;font-size:34px;font-weight:400}
+  .sector-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+  .sector-nav a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:120px;padding:28px 32px;background:var(--paper);text-decoration:none;transition:background .25s}
+  .sector-nav a:hover{background:#E2E0DB}
+  .sector-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .sector-nav .ko{font-size:22px}
+  .sector-nav .en,.sector .en{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  .sector-nav .cnt{font-family:'Jost',sans-serif;font-weight:200;font-size:32px;line-height:1;color:var(--gray);transition:transform .25s}
+  .sector-nav a:hover .cnt{transform:translateX(6px)}
+  .sector-nav .cnt.soon{font-family:'Gowun Batang',serif;font-size:14px;color:var(--muted)}
+  .sector{padding-top:96px;scroll-margin-top:68px}
+  .sector .bar{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .sector .bar h2{margin:0;font-size:30px;font-weight:400}
+  .sector .bar::after{content:"";flex-basis:100%;height:1px;background:var(--ink);margin-top:18px}
+  .empty p{margin:56px 0 40px;font-size:16px;line-height:1.9;color:var(--muted)}
+  .project{border-top:1px solid var(--line);padding:120px 0 40px}
+  .project .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px;align-items:end}
+  .project .num{font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;line-height:1;color:var(--muted)}
+  .project h3{margin:18px 0 14px;font-size:32px;font-weight:400;line-height:1.4}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:'Jost','Gowun Batang',sans-serif;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+  .taste{display:flex;align-items:center;gap:14px;margin-top:28px}
+  .taste .chips{display:flex;gap:6px}
+  .taste .chips b{width:22px;height:22px;display:block;box-shadow:0 0 0 1px rgba(30,30,28,.08)}
+  .taste span{font-size:14px;color:var(--muted)}
+  .story p{margin:0 0 16px;font-size:16px;line-height:2;color:#3A3835}
+  .voice{margin:0 0 30px;padding:22px 24px;background:rgba(247,245,241,.7)}
+  .voice p{margin:8px 0 0;font-size:18px;line-height:1.8;color:var(--ink)}
+  .ph{color:#8A5A3C;background:rgba(181,151,106,.14);padding:1px 6px;border-radius:2px}
+
+  .sketch{margin-top:56px;border:1px dashed #B9B2A6;background:rgba(247,245,241,.6);min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:32px}
+  .sketch strong{font-weight:400;font-size:16px}
+  .sketch span{font-size:13px;color:var(--muted)}
+
+  .gallery{display:grid;gap:16px;margin-top:16px}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery .shot{all:unset;cursor:zoom-in;display:block;overflow:hidden;background:#E2DED6;width:100%}
+  .gallery .shot:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .gallery .shot:hover img{transform:scale(1.025)}
+  .r34{aspect-ratio:3/4}
+  .r32{aspect-ratio:3/2}
+  .wide{grid-column:1/-1}
+
+  .cta{border-top:1px solid var(--line);margin-top:120px;padding:140px 0 120px;text-align:center}
+  .cta h2{margin:18px 0 0;font-size:clamp(26px,3.6vw,38px);font-weight:400;line-height:1.6}
+  .cta p{margin:18px auto 0;max-width:520px;font-size:15px;line-height:1.9;color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin-top:48px;min-width:240px;min-height:60px;padding:0 40px;background:var(--ink);color:var(--ground);border:none;font-family:'Gowun Batang',serif;font-size:18px;letter-spacing:.24em;cursor:pointer;transition:background .25s}
+  .btn:hover{background:#3A3835}
+  .btn:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+  .contact{max-width:560px;margin:40px auto 0;text-align:left;background:var(--paper);padding:8px 32px}
+  .contact[hidden]{display:none}
+  .contact .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .contact .row:last-child{border-bottom:none}
+  .contact .row .label{letter-spacing:.2em}
+  .contact .row a{text-decoration:none;border-bottom:1px solid var(--line)}
+
+  /* relationship + process (dark band) */
+  .relation{background:#E2E0DB;color:#1E1E1C;padding:150px 0 140px}
+  .relation .grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:40px;align-items:center}
+  .relation h2{margin:0;font-size:clamp(36px,5.8vw,70px);font-weight:400;line-height:1.32;letter-spacing:-.01em}
+  .relation .lead{margin:44px 0 0;font-size:15px;line-height:2;color:#55524D}
+  .relation svg{width:100%;max-width:300px;height:auto;justify-self:center}
+  /* drawing: dots appear, then lines travel from dot to dot */
+  .rel-art path{stroke-dasharray:1;stroke-dashoffset:1}
+  .rel-art circle{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2)}
+  .rel-art.play .d1{animation:pop .55s ease-out 0s forwards, breathe 3.4s ease-in-out 3.8s infinite alternate}
+  .rel-art.play .l1{animation:draw 1.7s cubic-bezier(.65,0,.3,1) .45s forwards}
+  .rel-art.play .d2{animation:pop .55s ease-out 2.1s forwards, breathe 3.4s ease-in-out 4.4s infinite alternate}
+  .rel-art.play .d3{animation:pop .55s ease-out 1.2s forwards, breathe 3.4s ease-in-out 4.1s infinite alternate}
+  .rel-art.play .l2{animation:draw 1.7s cubic-bezier(.65,0,.3,1) 1.65s forwards}
+  .rel-art.play .d4{animation:pop .55s ease-out 3.3s forwards, breathe 3.4s ease-in-out 4.7s infinite alternate}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{0%{opacity:0;transform:scale(.2)}70%{opacity:1;transform:scale(1.3)}100%{opacity:1;transform:scale(1)}}
+  @keyframes breathe{from{opacity:1}to{opacity:.55}}
+  @media (prefers-reduced-motion:reduce){
+    .rel-art path{stroke-dashoffset:0}
+    .rel-art circle{opacity:1;transform:none}
+    .rel-art.play path,.rel-art.play circle{animation:none}
+  }
+
+  /* edit mode (owner only) */
+  .edit-fab{position:fixed;right:20px;bottom:20px;z-index:20;min-height:44px;padding:0 20px;border:1px solid var(--ink);background:var(--ground);color:var(--ink);font-family:'Jost','Gowun Batang',sans-serif;font-size:13px;letter-spacing:.16em;cursor:pointer}
+  .edit-fab[hidden],.edit-bar[hidden]{display:none}
+  .edit-bar{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:21;width:min(760px,calc(100vw - 24px));background:#1E1E1C;color:#ECEAE5;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .edit-bar .msg{flex:1 1 220px;font-size:13px;line-height:1.6;color:#CFCBC3}
+  .edit-bar button{min-height:44px;padding:0 16px;border:1px solid #6B6863;background:transparent;color:#ECEAE5;font-family:'Gowun Batang',serif;font-size:14px;cursor:pointer}
+  .edit-bar button.primary{background:#ECEAE5;color:#1E1E1C;border-color:#ECEAE5}
+  .edit-bar button:focus-visible,.edit-fab:focus-visible{outline:2px solid #8FA3B0;outline-offset:2px}
+  body.editing [data-edit]{outline:1px dashed rgba(143,163,176,.9);outline-offset:4px;cursor:text}
+  body.editing [data-edit]:focus{outline:2px solid #8FA3B0;background:rgba(143,163,176,.12)}
+  body.editing [data-edit].changed{outline-color:#B5976A}
+  body.editing{padding-bottom:120px}
+
+  .process{margin-top:150px;max-width:620px}
+  .process h3{margin:0;font-family:'Jost',sans-serif;font-size:26px;font-weight:300;letter-spacing:.22em}
+  .process .sub{margin:14px 0 0;font-size:15px;color:#A8A49C}
+  .process ol{list-style:none;margin:48px 0 0;padding:0 0 0 34px;position:relative}
+  .process ol::before{content:"";position:absolute;left:5px;top:6px;bottom:-24px;width:1px;background:#BDB8AF}
+  .process li{position:relative;padding-bottom:40px}
+  .process li:last-child{padding-bottom:0}
+  .process li::before{content:"";position:absolute;left:-34px;top:7px;width:11px;height:11px;border-radius:50%;background:#6F8593}
+  .process li strong{display:block;font-size:17px;font-weight:700;color:#1E1E1C}
+  .process li span{display:block;margin-top:6px;font-size:15px;line-height:1.8;color:#55524D}
+
+  /* readable Korean wrapping: break only between words, balanced lines, one thought per line */
+  body{word-break:keep-all;overflow-wrap:break-word}
+  p,h2,h3,blockquote{text-wrap:pretty}
+  h2,h3,.voice p{text-wrap:balance}
+  .ln{display:block}
+  .ln + .ln{margin-top:.55em}
+  .story .ln + .ln,.intro .ln + .ln{margin-top:.6em}
+  footer{border-top:1px solid var(--line);padding:48px 0 64px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;font-size:13px;line-height:1.9;color:var(--muted)}
+
+  /* viewer: photo + title + story */
+  dialog.viewer{border:none;padding:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:var(--ground);color:var(--ink)}
+  dialog.viewer::backdrop{background:rgba(30,30,28,.6)}
+  .vw{display:grid;grid-template-columns:minmax(0,1fr) 420px;height:100%}
+  .vw-img{margin:0;background:#1E1E1C;position:relative;display:flex;align-items:center;justify-content:center;min-height:0}
+  .vw-img img{max-width:100%;max-height:100vh;width:auto;height:auto;object-fit:contain}
+  .vw-nav{position:absolute;bottom:20px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:18px;color:#ECEAE5;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em}
+  .vw-nav button{min-width:44px;min-height:44px;border:1px solid rgba(236,234,229,.4);background:rgba(30,30,28,.5);color:#ECEAE5;font-family:'Jost',sans-serif;font-size:16px;cursor:pointer}
+  .vw-info{overflow:auto;padding:72px 44px 56px;position:relative}
+  .vw-info h3{margin:16px 0 14px;font-size:26px;font-weight:400;line-height:1.45}
+  .vw-info .meta{margin-bottom:28px}
+  .vw-info .voice{margin-bottom:24px}
+  .vw-info .story-copy p{margin:0 0 14px;font-size:15px;line-height:1.95;color:#3A3835}
+  .vw-close{position:absolute;top:16px;right:16px;min-width:48px;min-height:44px;border:none;background:transparent;color:var(--ink);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;cursor:pointer}
+  .vw button:focus-visible{outline:2px solid #8FA3B0;outline-offset:2px}
+
+  /* edit-mode image tools */
+  .add-bar{display:none;gap:10px;margin-top:16px}
+  body.editing .add-bar{display:flex;flex-wrap:wrap}
+  .add-bar button{min-height:44px;padding:0 18px;border:1px dashed #8A857C;background:var(--paper);color:var(--ink);font-family:'Gowun Batang',serif;font-size:14px;cursor:pointer}
+  .added:empty{display:none}
+  .gallery.masonry{display:block;columns:3;column-gap:16px;margin-top:40px}
+  .gallery.masonry.added{margin-top:16px}
+  .masonry .added-item{break-inside:avoid;margin-bottom:16px}
+  .masonry .shot img{height:auto}
+  .added-item.removed{display:none}
+  .sketch:not(.has-img){display:none}
+  body.editing .sketch{display:flex}
+  .todo{display:none}
+  body.editing .todo{display:block}
+  body.editing .meta .todo{display:inline}
+  .project.draft{display:none}
+  body.editing .project.draft{display:block}
+  .draft-note{margin-bottom:40px;padding:14px 18px;background:rgba(181,151,106,.16);color:#6B4A2E;font-size:14px;line-height:1.7}
+  .added-item{position:relative}
+  .added-item .rm{position:absolute;top:8px;right:8px;display:none;min-width:44px;min-height:36px;border:none;background:rgba(30,30,28,.75);color:#fff;font-size:12px;cursor:pointer}
+  body.editing .added-item .rm{display:block}
+  .sketch img{max-width:100%;max-height:520px;width:auto;height:auto;object-fit:contain}
+  .sketch.has-img{border-style:solid;border-color:transparent;background:transparent;padding:0}
+
+  @media (max-width:820px){
+    .wrap{padding:0 22px}
+    header.top nav{display:none}
+    .intro{padding:88px 0}
+    .intro .grid,.project .head,.relation .grid{grid-template-columns:minmax(0,1fr);gap:28px}
+    .relation{padding:100px 0 96px}
+    .relation svg{max-width:200px;justify-self:start;order:-1}
+    .process{margin-top:100px}
+    .project{padding:88px 0 24px}
+    .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .sector-nav{grid-template-columns:minmax(0,1fr)}
+    .works-head{padding:88px 0 16px}
+    .sector{padding-top:72px}
+    .gallery{gap:10px}
+    .gallery.masonry{columns:2;column-gap:10px}
+    .masonry .added-item{margin-bottom:10px}
+    .cta{margin-top:80px;padding:100px 0 88px}
+    .btn{width:100%}
+    .contact{padding:4px 22px}
+    .contact .row{flex-direction:column;align-items:flex-start;gap:6px}
+    dialog.viewer{overflow:auto}
+    .vw{grid-template-columns:minmax(0,1fr);grid-template-rows:58vh auto;height:auto;min-height:100%}
+    .vw-img img{max-height:58vh}
+    .vw-info{padding:40px 22px 48px;overflow:visible}
+    .vw-close{position:fixed;top:10px;right:10px;background:rgba(237,234,228,.9)}
+  }
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="the Gray Design Studio 처음으로">
+      <span class="row"><span class="the">the</span><span class="gray">Gray</span></span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#about">ABOUT</a>
+      <a href="#approach">APPROACH</a>
+      <a href="#residential">RESIDENTIAL</a>
+      <a href="#commercial">COMMERCIAL</a>
+      <a href="#contact-section">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="logo" role="img" aria-label="the Gray Design Studio 로고">
+      <span class="row"><span class="the">the</span><span class="gray">Gray</span></span>
+      <span class="ds">DESIGN STUDIO</span>
+    </div>
+    <p class="statement">바라시는 공간을 함께 실현합니다.</p>
+    <p class="sub">주거 · 상업 공간 설계와 시공 · 예약제 운영</p>
+    <a class="label scroll" href="#about">Scroll</a>
+  </section>
+
+  <section class="intro" id="about">
+    <div class="wrap grid">
+      <div>
+        <div class="label">About</div>
+        <h2>고객님의 공간은 곧 저희를 나타내는 색이 됩니다.</h2>
+      </div>
+      <div>
+        <p><span class="ln">더그레이 디자인 스튜디오는 순수미술을 전공한 디자이너들이 함께하는 디자인 그룹입니다.</span><span class="ln">회사만의 색보다, 찾아주시는 고객님의 삶을 듣고 공간으로 옮기는 일을 합니다.</span><span class="ln">고객님의 취향과 결을 완성하는 밑색이자, 파트너가 되겠습니다.</span></p>
+        <p><span class="ln">공사의 규모보다 완성도에 집중합니다.</span><span class="ln">한 달에 소수의 현장만 예약제로, 기획부터 마감까지 대표와 디자이너가 함께합니다.</span><span class="ln">고객과 작업자, 디자이너가 서로에게 정직한 관계로 일하는 것, 저희가 가장 중요하게 여기는 원칙입니다.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="relation" id="approach">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <h2>좋은 공간은<br>사람과 사람 사이에서<br>시작됩니다.</h2>
+          <p class="lead"><span class="ln">같은 평수라도 현장마다 답은 다릅니다. 그래서 평면도 한 장으로 견적을 내지 않습니다.</span><span class="ln">더그레이는 고객님과 함께 현장을 실측한 후, 자재와 공정이 모두 적힌 상세 견적서를 드립니다.</span></p>
+        </div>
+        <svg class="rel-art" id="rel-art" viewBox="0 0 280 200" aria-hidden="true">
+          <path class="l1" pathLength="1" d="M40 22 C 78 210, 222 210, 252 32" fill="none" stroke="#7D919E" stroke-width="1.3" stroke-linecap="round"/>
+          <path class="l2" pathLength="1" d="M12 186 C 44 -26, 232 -26, 266 148" fill="none" stroke="#7D919E" stroke-width="1.3" stroke-linecap="round"/>
+          <circle class="d1" cx="40" cy="22" r="6" fill="#3A3835"/>
+          <circle class="d2" cx="252" cy="32" r="6" fill="#3A3835"/>
+          <circle class="d3" cx="12" cy="186" r="6" fill="#3A3835"/>
+          <circle class="d4" cx="266" cy="148" r="6" fill="#3A3835"/>
+        </svg>
+      </div>
+
+      <div class="process">
+        <h3>HOW TO WORK</h3>
+        <ol>
+          <li><strong>듣습니다.</strong><span>가족 구성, 공간 특성, 삶의 방식을 듣습니다.</span></li>
+          <li><strong>함께 그립니다.</strong><span>평면과 렌더링을 보며 고객과 같은 화면에서 결정합니다.</span></li>
+          <li><strong>모든 공정을 곁에서 함께.</strong><span>현장의 변화를 그때그때 공유하고 함께 조율합니다.</span></li>
+          <li><strong>이후에도 연락합니다.</strong><span>시공이 끝나도 관계는 끝나지 않습니다. A/S 1년을 보장합니다.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div id="works">
+    <section class="works-head" aria-labelledby="works-title">
+      <div class="wrap">
+        <div class="label">Works</div>
+        <h2 id="works-title">완성된 공간들</h2>
+        <nav class="sector-nav" aria-label="공간 분야">
+          <a href="#residential"><span><span class="ko">주거 공간</span><br><span class="en">Residential</span></span><span class="cnt" aria-hidden="true">→</span></a>
+          <a href="#commercial"><span><span class="ko">상업 공간</span><br><span class="en">Commercial</span></span><span class="cnt" aria-hidden="true">→</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <div class="sector" id="residential">
+      <div class="wrap bar"><h2>주거 공간</h2><span class="en">Residential</span></div>
+    </div>
+
+    <!-- Project 01 -->
+    <article class="project" id="p1" data-project="p1" aria-labelledby="p1-title">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <div class="num">Apartment</div>
+            <h3 id="p1-title">햇살 가득 마포 한강변 아파트,<br>부부의 삶을 위한 공간</h3>
+            <div class="meta"><span>Residential</span><span>마포</span><span>87.47㎡</span><span>공사 6주</span></div>
+            <div class="taste">
+              <div class="chips" aria-hidden="true"><b style="background:#9FAA9F"></b><b style="background:#ECE9E3"></b><b style="background:#B5976A"></b></div>
+              <span>이 집의 색 — 세이지, 화이트, 오크</span>
+            </div>
+          </div>
+          <div class="story">
+            <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>일과 여행을 즐기는 부부의 삶,<br>오크 톤과 스테인리스 상판의 주방을 원해요.</p></blockquote>
+            <p><span class="ln">오크 톤의 마루와 이질감 없이 통일감을 주는 오크 톤 하부장,</span><span class="ln">스테인리스 소재로 상판과 일체형 싱크, 그 자체만으로 존재감 있는 디자인과 재질의 대비,</span><span class="ln">한강변 아파트의 햇살에 집을 한껏 화사하게 살려 줄 세이지 그린빛의 포인트 타일.</span></p>
+            <p><span class="ln">전체 마이너스 몰딩으로 중형 평수 공간이 한층 정돈되어 보입니다.</span><span class="ln">서로 다른 재질의 대비가 돋보이도록 주방 상판과 타일, 벽 모두 1:1:1로 단차 없이 마감하였습니다.</span><span class="ln">적당한 텍스처가 느껴지는 벽과, 공간을 더욱 부드럽게 연출해 주는 간접등.</span><span class="ln">재택근무가 잦은 남편을 위한 서재 방, 세탁물을 걸어 잠시 환기시킬 수 있는 천장형 행거.</span><span class="ln">베란다 확장부에는 코너 라운드 몰딩으로 시각적 개방감을 더합니다.</span></p>
+          </div>
+        </div>
+
+        <div class="sketch" data-project="p1">
+          <strong>현장 스케치</strong>
+          <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+        </div>
+        <div class="gallery masonry" data-project="p1">
+          <div class="added-item" data-img-id="a4ea4df3fb1ef189b1f7a3148654fc88" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-01.jpg"><img src="img/p1/p1-01.jpg" alt="햇살 가득 한강변 아파트 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="96628a675bae27e6dd4b1f060b673eb8" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-02.jpg"><img src="img/p1/p1-02.jpg" alt="햇살 가득 한강변 아파트 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="190d6ded9bce483bee9c519a19c1525b" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-03.jpg"><img src="img/p1/p1-03.jpg" alt="햇살 가득 한강변 아파트 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="f40ea8b3f01d46ab4f13c1a05aee8246" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-04.jpg"><img src="img/p1/p1-04.jpg" alt="햇살 가득 한강변 아파트 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="55e2a373a05a0536b5322f2ac6647bde" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-05.jpg"><img src="img/p1/p1-05.jpg" alt="햇살 가득 한강변 아파트 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="7f9519162ad8009856bc259eacf820dc" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-06.jpg"><img src="img/p1/p1-06.jpg" alt="햇살 가득 한강변 아파트 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ab577f7c7cd3c6c98dbb3f2a42be0a9e" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-07.jpg"><img src="img/p1/p1-07.jpg" alt="햇살 가득 한강변 아파트 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="f384da8aa3ff1662c326a2c868dfdee4" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-08.jpg"><img src="img/p1/p1-08.jpg" alt="햇살 가득 한강변 아파트 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="d2baf00e95326e011749973210d2e69d" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-09.jpg"><img src="img/p1/p1-09.jpg" alt="햇살 가득 한강변 아파트 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="4d0de9805db90afe040c5ef89ab3f3e5" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-10.jpg"><img src="img/p1/p1-10.jpg" alt="햇살 가득 한강변 아파트 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="cddb2f9dba79e0536989eab4abc98459" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-11.jpg"><img src="img/p1/p1-11.jpg" alt="햇살 가득 한강변 아파트 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="2cc5d1c1d14910f406dd8f0c7cddf0fc" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-12.jpg"><img src="img/p1/p1-12.jpg" alt="햇살 가득 한강변 아파트 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="3f0731b3bcb21592d76d24e2aed3f243" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-13.jpg"><img src="img/p1/p1-13.jpg" alt="햇살 가득 한강변 아파트 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="98bae78886a0cb8c01833fa7008116d1" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-14.jpg"><img src="img/p1/p1-14.jpg" alt="햇살 가득 한강변 아파트 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="cfdab415942bb693da1aa1beabffa8e7" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-15.jpg"><img src="img/p1/p1-15.jpg" alt="햇살 가득 한강변 아파트 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="52d02d170c7621c3ee1ffc01869d2937" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-16.jpg"><img src="img/p1/p1-16.jpg" alt="햇살 가득 한강변 아파트 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e8c63dcf8f63a8255164fdc651c15f1c" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-17.jpg"><img src="img/p1/p1-17.jpg" alt="햇살 가득 한강변 아파트 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="306f7189af0c2397676b23ba7fc0979b" data-baked="1"><button type="button" class="shot" data-full="img/p1/p1-18.jpg"><img src="img/p1/p1-18.jpg" alt="햇살 가득 한강변 아파트 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+        <div class="gallery masonry added" data-project="p1"></div>
+        <div class="add-bar" data-project="p1"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+      </div>
+    </article>
+
+    <!-- Project 02 -->
+    <article class="project" id="p2" data-project="p2" aria-labelledby="p2-title">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <div class="num">Apartment</div>
+            <h3 id="p2-title">장성한 세 아들과<br>함께하는 집</h3>
+            <div class="meta"><span>Residential</span><span>인덕원센트럴자이</span><span>151.49A㎡</span><span>공사 6주</span></div>
+            <div class="taste">
+              <div class="chips" aria-hidden="true"><b style="background:#E2DCD2"></b><b style="background:#CBBFAF"></b><b style="background:#B5976A"></b></div>
+              <span>이 집의 색 — 웜 화이트, 스톤 베이지, 오크</span>
+            </div>
+          </div>
+          <div class="story">
+            <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>주방 사용이 적은 집,<br>대면형 주방을 원하지 않아요.</p></blockquote>
+            <p><span class="ln">장성한 세 아드님과 다섯 식구를 위한 집.</span><span class="ln">각자의 삶을 살아내고, 퇴근 후 저녁이 되면 모이는 공간.</span></p>
+            <p><span class="ln">무늬가 살아 있는 오크 톤의 마루와 톤은 맞추되 텍스처감의 차이를 둔 하부장,</span><span class="ln">넓은 평수에 중간 톤이 주는 아늑함을 위해 톤을 낮춘 웜 화이트 회벽,</span><span class="ln">불필요했던 비내력벽을 허물고 주방부 확장과 라이프스타일에 맞춘 주방 개조,</span><span class="ln">거실 부분 마이너스 몰딩과 각 방 평몰딩, 부분 기존 샷시 활용으로 비용을 절감할 수 있는 부분은 절감하되 보여지는 공용부에 집중하였습니다.</span><span class="ln">주방부 미드웨이와 맞물리는 벽은 인조대리석으로 단차 없이 마감해 시선에 거슬림이 없도록 하였습니다.</span></p>
+          </div>
+        </div>
+
+        <div class="sketch" data-project="p2">
+          <strong>현장 스케치</strong>
+          <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+        </div>
+        <div class="gallery masonry" data-project="p2">
+          <div class="added-item" data-img-id="f75bad4f6799cdf918dff8ff849df840" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-01.jpg"><img src="img/p2/p2-01.jpg" alt="인덕원센트럴자이 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ff3d5e8958cb7ba19e668fa5865b3e5e" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-02.jpg"><img src="img/p2/p2-02.jpg" alt="인덕원센트럴자이 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="82fdf04dd08eea96a83ca262e20f2df6" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-03.jpg"><img src="img/p2/p2-03.jpg" alt="인덕원센트럴자이 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="90fa54750f59a8030174cf204366e6a1" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-04.jpg"><img src="img/p2/p2-04.jpg" alt="인덕원센트럴자이 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="fb88da9e9e8fe8eca9f1568c11e6a545" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-05.jpg"><img src="img/p2/p2-05.jpg" alt="인덕원센트럴자이 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c55c284cfeec7a040733e981af49da89" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-06.jpg"><img src="img/p2/p2-06.jpg" alt="인덕원센트럴자이 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="81d8787b279548bb4e2be312cbda2c7c" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-07.jpg"><img src="img/p2/p2-07.jpg" alt="인덕원센트럴자이 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c61e83efed5896eb4acc689c5c3660a2" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-08.jpg"><img src="img/p2/p2-08.jpg" alt="인덕원센트럴자이 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="35288c4d81dc3efcc4ea85598fb3d1d7" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-09.jpg"><img src="img/p2/p2-09.jpg" alt="인덕원센트럴자이 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5c223b01696376b2b75cdaf60d7cf871" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-10.jpg"><img src="img/p2/p2-10.jpg" alt="인덕원센트럴자이 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5cef8416c09c59705a942cae16ab387b" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-11.jpg"><img src="img/p2/p2-11.jpg" alt="인덕원센트럴자이 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="763c6e1a712ca79732fa16b6713ab1ff" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-12.jpg"><img src="img/p2/p2-12.jpg" alt="인덕원센트럴자이 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="94caa33a5ef44a85ea458496226eecdc" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-13.jpg"><img src="img/p2/p2-13.jpg" alt="인덕원센트럴자이 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="a127b796ade30aa2f9ee25677b658d8f" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-14.jpg"><img src="img/p2/p2-14.jpg" alt="인덕원센트럴자이 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="76ba8a0c10fbf3f7edb66aee1ea66ec3" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-15.jpg"><img src="img/p2/p2-15.jpg" alt="인덕원센트럴자이 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="44256b74ce131d3ed2dbd1bba3f174cd" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-16.jpg"><img src="img/p2/p2-16.jpg" alt="인덕원센트럴자이 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="136937fbbaba313a097cdf06a616a7ff" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-17.jpg"><img src="img/p2/p2-17.jpg" alt="인덕원센트럴자이 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="912617c841ecb98a06a6215076847cc6" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-18.jpg"><img src="img/p2/p2-18.jpg" alt="인덕원센트럴자이 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b541d860f8178801ff11c796f6f68657" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-19.jpg"><img src="img/p2/p2-19.jpg" alt="인덕원센트럴자이 현장 사진 19" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ce06727eb8855b9dc654d63bb804b909" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-20.jpg"><img src="img/p2/p2-20.jpg" alt="인덕원센트럴자이 현장 사진 20" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="48bf9967f20b8161b3805abfbe2f1f51" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-21.jpg"><img src="img/p2/p2-21.jpg" alt="인덕원센트럴자이 현장 사진 21" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="19318a65004b329e34f5fa91f1142823" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-22.jpg"><img src="img/p2/p2-22.jpg" alt="인덕원센트럴자이 현장 사진 22" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e3a5db771433cc28d23b9b9a50d7afa3" data-baked="1"><button type="button" class="shot" data-full="img/p2/p2-23.jpg"><img src="img/p2/p2-23.jpg" alt="인덕원센트럴자이 현장 사진 23" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+        <div class="gallery masonry added" data-project="p2"></div>
+        <div class="add-bar" data-project="p2"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+      </div>
+    </article>
+
+    <div class="sector" id="commercial">
+      <div class="wrap bar"><h2>상업 공간</h2><span class="en">Commercial</span></div>
+      <article class="project" id="p3" data-project="p3" aria-labelledby="p3-title">
+        <div class="wrap">
+          <div class="head">
+            <div>
+              <div class="num">Restaurant</div>
+              <h3 id="p3-title">용산 스시노바</h3>
+              <div class="meta"><span>Commercial</span><span>용산</span><span>25평대</span><span>공사 4주</span></div>
+            </div>
+            <div class="story">
+              <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>스테인리스 재질의 반 오픈 주방과<br>홀의 연결이 자연스러웠으면 좋겠어요.</p></blockquote>
+              <p><span class="ln">스테인리스 재질의 반오픈형 주방이 돋보이길 원하셨고, 파인 다이닝과 캐주얼 다이닝의 경계에 있기를 원하셨습니다.</span><span class="ln">예약석 이용 고객이 특별함을 느끼도록 천연대리석으로 제작한 테이블로 브랜드의 포인트를 주고,</span><span class="ln">재질의 리듬감 있는 대비로 하나의 공간이 요란하지 않되 각자의 자리에서 빛나도록,</span><span class="ln">주방과 홀의 동선에 무리 없이 활용도는 높게, 공간은 넓어 보이도록 설계하였습니다.</span></p>
+            </div>
+          </div>
+          <div class="sketch" data-project="p3">
+            <strong>현장 스케치</strong>
+            <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+          </div>
+        <div class="gallery masonry" data-project="p3">
+          <div class="added-item" data-img-id="3ed1e690c26d21bfb901176f3266c35c" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-01.jpg"><img src="img/p3/p3-01.jpg" alt="용산 스시노바 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="14a5b65259c41108b49999b8e0fc3a61" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-02.jpg"><img src="img/p3/p3-02.jpg" alt="용산 스시노바 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="3454075cca98298a3cbe8e21f2a44989" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-03.jpg"><img src="img/p3/p3-03.jpg" alt="용산 스시노바 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="6333815cb63c0154e94995b04ed6840b" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-04.jpg"><img src="img/p3/p3-04.jpg" alt="용산 스시노바 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e64302bee17d95a1f2419b660794ea2e" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-05.jpg"><img src="img/p3/p3-05.jpg" alt="용산 스시노바 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="dfd2e565fd19167e1dbc757fcc58581c" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-06.jpg"><img src="img/p3/p3-06.jpg" alt="용산 스시노바 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="7186d6bff1cb0e12c7703f3cf0d2ed27" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-07.jpg"><img src="img/p3/p3-07.jpg" alt="용산 스시노바 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="9a405c63061257b46babacdd3c488a5d" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-08.jpg"><img src="img/p3/p3-08.jpg" alt="용산 스시노바 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="fe25aa289cf70650750d65ff17eb01ed" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-09.jpg"><img src="img/p3/p3-09.jpg" alt="용산 스시노바 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="2f0400ce8290777ec0dd6001ede42e1a" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-10.jpg"><img src="img/p3/p3-10.jpg" alt="용산 스시노바 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="80516da199b30ad2ca3064cecdce7ea5" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-11.jpg"><img src="img/p3/p3-11.jpg" alt="용산 스시노바 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="f8e904d8305b72da450616815cc7b6cb" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-12.jpg"><img src="img/p3/p3-12.jpg" alt="용산 스시노바 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="063a80feec40297f1f40ca0e07fce7f7" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-13.jpg"><img src="img/p3/p3-13.jpg" alt="용산 스시노바 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="070f0eef4f3e92a3d605492dedd009cc" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-14.jpg"><img src="img/p3/p3-14.jpg" alt="용산 스시노바 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ff0a3b3991820b9041ed6a838eadb925" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-15.jpg"><img src="img/p3/p3-15.jpg" alt="용산 스시노바 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="1c6f9b09563f3bbc9d7936274d31a8c9" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-16.jpg"><img src="img/p3/p3-16.jpg" alt="용산 스시노바 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="34b47a921fc1819fa5c6ec955c46bcfe" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-17.jpg"><img src="img/p3/p3-17.jpg" alt="용산 스시노바 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="1596c952eebf2f0a4c76d1fee853e15d" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-18.jpg"><img src="img/p3/p3-18.jpg" alt="용산 스시노바 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="a7d9fc23c2cf5b834f1db550769d2f09" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-19.jpg"><img src="img/p3/p3-19.jpg" alt="용산 스시노바 현장 사진 19" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b7e8ba7cc0290f20adce10a06e15746a" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-20.jpg"><img src="img/p3/p3-20.jpg" alt="용산 스시노바 현장 사진 20" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="bbf72d126f8a82c388cab2e6e01330b4" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-21.jpg"><img src="img/p3/p3-21.jpg" alt="용산 스시노바 현장 사진 21" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="917f8eae8907f23786f54b8bae4724df" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-22.jpg"><img src="img/p3/p3-22.jpg" alt="용산 스시노바 현장 사진 22" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="9dd32876d377b4e013b19901b5456359" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-23.jpg"><img src="img/p3/p3-23.jpg" alt="용산 스시노바 현장 사진 23" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="28c6fa9705033de01c450c9f4312c286" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-24.jpg"><img src="img/p3/p3-24.jpg" alt="용산 스시노바 현장 사진 24" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="2cd46adcd2249494c96db2bab5167a58" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-25.jpg"><img src="img/p3/p3-25.jpg" alt="용산 스시노바 현장 사진 25" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b2f0d53fee6abb18933e347872d35316" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-26.jpg"><img src="img/p3/p3-26.jpg" alt="용산 스시노바 현장 사진 26" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b18647ef5790180adb65288ef1768543" data-baked="1"><button type="button" class="shot" data-full="img/p3/p3-27.jpg"><img src="img/p3/p3-27.jpg" alt="용산 스시노바 현장 사진 27" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+          <div class="gallery masonry added" data-project="p3"></div>
+          <div class="add-bar" data-project="p3"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+        </div>
+      </article>
+      <article class="project" id="p4" data-project="p4" aria-labelledby="p4-title">
+        <div class="wrap">
+          
+          <div class="head">
+            <div>
+              <div class="num">Restaurant</div>
+              <h3 id="p4-title">기린 훠궈</h3>
+              <div class="meta"><span>Commercial</span><span>성수</span><span>30평대</span><span>공사 6주</span></div>
+            </div>
+            <div class="story">
+              <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>중국 회사 설계와 차이가 적었으면 좋겠어요.</p></blockquote>
+              <p><span class="ln">한국에서 처음 론칭하는 대표님과의 작업.</span><span class="ln">중국 회사에서 디자인과 설계를 했으나, 현장의 상황에 맞게 변경과 시공을 조율할 손이 필요했습니다.</span><span class="ln">무리가 가는 설계는 현장에 맞게 수정하고, 유지 관리가 용이하도록 변경 시공하였습니다.</span></p>
+            </div>
+          </div>
+          <div class="sketch" data-project="p4">
+            <strong>현장 스케치</strong>
+            <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+          </div>
+        <div class="gallery masonry" data-project="p4">
+          <div class="added-item" data-img-id="ae0bf51805a9c829fece5975dc4fde25" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-01.jpg"><img src="img/p4/p4-01.jpg" alt="성수 기린 훠궈 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b19340b3e2896d7ddb1334c1893f1aa5" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-02.jpg"><img src="img/p4/p4-02.jpg" alt="성수 기린 훠궈 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5b0686472d86bede3f5ac512f9712076" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-03.jpg"><img src="img/p4/p4-03.jpg" alt="성수 기린 훠궈 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="3d744e8a0b3cdbb50dcd7b9fa449c40d" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-04.jpg"><img src="img/p4/p4-04.jpg" alt="성수 기린 훠궈 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="aa1b3db862af5014f3ad84d6cbc2e5fc" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-05.jpg"><img src="img/p4/p4-05.jpg" alt="성수 기린 훠궈 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="d3600597ed4133cdf5e3c356a63f3f4a" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-06.jpg"><img src="img/p4/p4-06.jpg" alt="성수 기린 훠궈 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="4ecdcd6c9eea4dbe78e0c43a5b73266c" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-07.jpg"><img src="img/p4/p4-07.jpg" alt="성수 기린 훠궈 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="4191b6d6906fb5f751ba65020d8a3a34" data-baked="1"><button type="button" class="shot" data-full="img/p4/p4-08.jpg"><img src="img/p4/p4-08.jpg" alt="성수 기린 훠궈 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+          <div class="gallery masonry added" data-project="p4"></div>
+          <div class="add-bar" data-project="p4"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+        </div>
+      </article>
+      <article class="project" id="p5" data-project="p5" aria-labelledby="p5-title">
+        <div class="wrap">
+          
+          <div class="head">
+            <div>
+              <div class="num">Pop-up Store</div>
+              <h3 id="p5-title">아디다스 성수 팝업스토어</h3>
+              <div class="meta"><span>Commercial</span><span>성수</span><span>16평대</span><span>공사 3일</span></div>
+            </div>
+            <div class="story">
+              <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>기간 내에 이미지와 같은 설치가<br>가장 중요합니다.</p></blockquote>
+              <p><span class="ln">촉박한 팝업 프로젝트의 특성상 빠른 시안 수정과 디테일 논의를 거쳐 렌더링 이미지를 확정합니다.</span><span class="ln">공간을 실사화하는 소품과 스타일링 구조물을 제작하고 설치합니다.</span><span class="ln">무엇보다 설치와 철거 모두 문제가 없도록, 공정에 오차가 없게 계산하여 시공합니다.</span></p>
+            </div>
+          </div>
+          <div class="sketch" data-project="p5">
+            <strong>현장 스케치</strong>
+            <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+          </div>
+        <div class="gallery masonry" data-project="p5">
+          <div class="added-item" data-img-id="7ab9c50b5ec07cd232250e329aaef7ee" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-01.jpg"><img src="img/p5/p5-01.jpg" alt="아디다스 성수 팝업스토어 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="a4c2b6a1b52589d9563c59ca6f00f88b" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-02.jpg"><img src="img/p5/p5-02.jpg" alt="아디다스 성수 팝업스토어 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c8cfb8fc68863eebc6c9ecb8bfe7fcbd" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-03.jpg"><img src="img/p5/p5-03.jpg" alt="아디다스 성수 팝업스토어 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="fdbd9dffda883fa835a38670e1b15afa" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-04.jpg"><img src="img/p5/p5-04.jpg" alt="아디다스 성수 팝업스토어 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="4da4378a61c2a7566064f877a54c625c" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-05.jpg"><img src="img/p5/p5-05.jpg" alt="아디다스 성수 팝업스토어 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="f5a61b1f5bef8ebfc84c28d7d12fd7d1" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-06.jpg"><img src="img/p5/p5-06.jpg" alt="아디다스 성수 팝업스토어 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ce84b7a70b6dffe479ccfd96f2f80fe5" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-07.jpg"><img src="img/p5/p5-07.jpg" alt="아디다스 성수 팝업스토어 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="77828ffc66e2936bbf813599ff6ca26f" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-08.jpg"><img src="img/p5/p5-08.jpg" alt="아디다스 성수 팝업스토어 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="21b8096f4c2e780182fa714626307495" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-09.jpg"><img src="img/p5/p5-09.jpg" alt="아디다스 성수 팝업스토어 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="87fd5fbb10f3d50b2b7fe7f5179c2b3f" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-10.jpg"><img src="img/p5/p5-10.jpg" alt="아디다스 성수 팝업스토어 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="44a3ad7617a721cd36015c5ec6a9e324" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-11.jpg"><img src="img/p5/p5-11.jpg" alt="아디다스 성수 팝업스토어 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="d09e016a0eed53c4f6748b63db66dec3" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-12.jpg"><img src="img/p5/p5-12.jpg" alt="아디다스 성수 팝업스토어 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="aeb435add35e561dbd79de5b01c110a5" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-13.jpg"><img src="img/p5/p5-13.jpg" alt="아디다스 성수 팝업스토어 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="0f9afe6e5e9f7ce586b81f1e0d2b2f59" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-14.jpg"><img src="img/p5/p5-14.jpg" alt="아디다스 성수 팝업스토어 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="932e9d99ea2932fdb177aca9aa5b4aab" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-15.jpg"><img src="img/p5/p5-15.jpg" alt="아디다스 성수 팝업스토어 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c443f279b04005044d34b73c950e4d60" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-16.jpg"><img src="img/p5/p5-16.jpg" alt="아디다스 성수 팝업스토어 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="4ed660c28ec7825948ec9bd3ca0c838b" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-17.jpg"><img src="img/p5/p5-17.jpg" alt="아디다스 성수 팝업스토어 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ffec506d6fd9468e82ccb383b2b09a57" data-baked="1"><button type="button" class="shot" data-full="img/p5/p5-18.jpg"><img src="img/p5/p5-18.jpg" alt="아디다스 성수 팝업스토어 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+          <div class="gallery masonry added" data-project="p5"></div>
+          <div class="add-bar" data-project="p5"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+        </div>
+      </article>
+      <article class="project" id="p6" data-project="p6" aria-labelledby="p6-title">
+        <div class="wrap">
+          
+          <div class="head">
+            <div>
+              <div class="num">Wellness</div>
+              <h3 id="p6-title">헬로바레</h3>
+              <div class="meta"><span>Commercial</span><span>강서</span><span>40평대</span><span>공사 5주</span></div>
+            </div>
+            <div class="story">
+              <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>사선적인 공간이라 걱정이에요.</p></blockquote>
+              <p><span class="ln">동선에 맞게 설계하여 사선으로 보이는 공간의 단점을 가리고, 채광이 가득 들어오는 현장의 장점을 살렸습니다.</span><span class="ln">맨몸 운동을 하더라도 따뜻하고 편안한 무드를 느끼도록, 주거와 상업의 경계에 있는 느낌을 주고자 하였습니다.</span><span class="ln">브랜드의 컬러를 나타내는 오렌지빛 타일로 공간에 포인트를 주었습니다.</span></p>
+            </div>
+          </div>
+          <div class="sketch" data-project="p6">
+            <strong>현장 스케치</strong>
+            <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+          </div>
+        <div class="gallery masonry" data-project="p6">
+          <div class="added-item" data-img-id="35198b47b67cecfcebcab06f1af2b0ca" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-01.jpg"><img src="img/p6/p6-01.jpg" alt="헬로바레 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c1be9aeddc66328d454b411a7569f8f7" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-02.jpg"><img src="img/p6/p6-02.jpg" alt="헬로바레 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c426f3e9636a427cfca6a3ffe9cc92da" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-03.jpg"><img src="img/p6/p6-03.jpg" alt="헬로바레 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="da3240ae4767acb1c8994e72e05a0f6c" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-04.jpg"><img src="img/p6/p6-04.jpg" alt="헬로바레 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="02b50f3781daab90f10abc7703d131e8" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-05.jpg"><img src="img/p6/p6-05.jpg" alt="헬로바레 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="1c3675b4a7592a6b4e4cac565affde32" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-06.jpg"><img src="img/p6/p6-06.jpg" alt="헬로바레 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5d8362d73f3618dba099201f1b0d70fc" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-07.jpg"><img src="img/p6/p6-07.jpg" alt="헬로바레 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="0c2e4a67d9aef18e9373d8c04987523a" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-08.jpg"><img src="img/p6/p6-08.jpg" alt="헬로바레 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="7f3c6b322ad52c65eec3cc787920346f" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-09.jpg"><img src="img/p6/p6-09.jpg" alt="헬로바레 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="21233f3f1e6e5f864065995e74dcf5bc" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-10.jpg"><img src="img/p6/p6-10.jpg" alt="헬로바레 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="be8d5e9542b6f7d2ee02e37bc677437c" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-11.jpg"><img src="img/p6/p6-11.jpg" alt="헬로바레 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="3a140a5b64657c506aae65eef113a7d4" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-12.jpg"><img src="img/p6/p6-12.jpg" alt="헬로바레 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="8c2158d2edc97edd94b8a7dcc6f4336c" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-13.jpg"><img src="img/p6/p6-13.jpg" alt="헬로바레 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="724d48d298ad69be5d61e9b15995ec04" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-14.jpg"><img src="img/p6/p6-14.jpg" alt="헬로바레 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b7af5f15199c756d5fb1ea72f8d07129" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-15.jpg"><img src="img/p6/p6-15.jpg" alt="헬로바레 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ef2ae41da2e8b4167453f8b1584df698" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-16.jpg"><img src="img/p6/p6-16.jpg" alt="헬로바레 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="f0dfd257f662684d4b9b52ff546ea369" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-17.jpg"><img src="img/p6/p6-17.jpg" alt="헬로바레 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e7ac7a517f4dd721e0359c97695bdd0d" data-baked="1"><button type="button" class="shot" data-full="img/p6/p6-18.jpg"><img src="img/p6/p6-18.jpg" alt="헬로바레 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+          <div class="gallery masonry added" data-project="p6"></div>
+          <div class="add-bar" data-project="p6"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+        </div>
+      </article>
+      <article class="project" id="p7" data-project="p7" aria-labelledby="p7-title">
+        <div class="wrap">
+          
+          <div class="head">
+            <div>
+              <div class="num">Fitness</div>
+              <h3 id="p7-title">1986 피트니스</h3>
+              <div class="meta"><span>Commercial</span><span>무악재</span><span>400평대</span><span>공사 12주</span></div>
+            </div>
+            <div class="story">
+              <blockquote class="voice"><span class="label">처음 들려주신 이야기</span><p>기존에 없던 호텔 느낌의<br>대형 피트니스를 하고 싶어요.</p></blockquote>
+              <p><span class="ln">넓은 면적만큼 예산 배분이 중요한 현장.</span><span class="ln">추구하는 레퍼런스를 예산에 맞게 디자인하고, 상업 공간의 특성상 유지 관리가 용이하도록 했습니다.</span><span class="ln">피트니스의 특성상 누수와 설비, 설계에 더욱 집중하고,</span><span class="ln">대형 평수에서도 지루하지 않은 통일감과 부분적인 포인트, 브랜드가 기억될 구조물까지 제작하였습니다.</span></p>
+            </div>
+          </div>
+          <div class="sketch" data-project="p7">
+            <strong>현장 스케치</strong>
+            <span>이곳에 이 현장의 스케치나 드로잉 이미지가 들어갑니다.</span>
+          </div>
+        <div class="gallery masonry" data-project="p7">
+          <div class="added-item" data-img-id="b003a5a17c7449a34574c307fccdf3b4" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-01.jpg"><img src="img/p7/p7-01.jpg" alt="1986 피트니스 현장 사진 1" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="c7b7610046d20be484f3b66cfd49d822" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-02.jpg"><img src="img/p7/p7-02.jpg" alt="1986 피트니스 현장 사진 2" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ae11393fc50b7485d601672ee574a95f" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-03.jpg"><img src="img/p7/p7-03.jpg" alt="1986 피트니스 현장 사진 3" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="55f62774a4c379a1c4580a05ba97828a" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-04.jpg"><img src="img/p7/p7-04.jpg" alt="1986 피트니스 현장 사진 4" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="8710cfdbf91e7ce0ec24f95396f9ca32" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-05.jpg"><img src="img/p7/p7-05.jpg" alt="1986 피트니스 현장 사진 5" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="df4b03eca43e12ac39f10169e8106e0b" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-06.jpg"><img src="img/p7/p7-06.jpg" alt="1986 피트니스 현장 사진 6" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="2df2e7408802661d2ea4ecdc085be2d1" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-07.jpg"><img src="img/p7/p7-07.jpg" alt="1986 피트니스 현장 사진 7" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="bf35e120718a483d76fd2a263988117d" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-08.jpg"><img src="img/p7/p7-08.jpg" alt="1986 피트니스 현장 사진 8" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="752b1f9d814dc6898ce2f24a9f006532" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-09.jpg"><img src="img/p7/p7-09.jpg" alt="1986 피트니스 현장 사진 9" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="71f5f146a7ed46895e5c6f117fc893a0" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-10.jpg"><img src="img/p7/p7-10.jpg" alt="1986 피트니스 현장 사진 10" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ea963977a7f76e8604a9aa6b118f32dc" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-11.jpg"><img src="img/p7/p7-11.jpg" alt="1986 피트니스 현장 사진 11" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="25a253c07fa87bc32330ef3c5beeb532" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-12.jpg"><img src="img/p7/p7-12.jpg" alt="1986 피트니스 현장 사진 12" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="74a6e2e3d919f42c6f92a30f7b591b86" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-13.jpg"><img src="img/p7/p7-13.jpg" alt="1986 피트니스 현장 사진 13" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="eb46d1614ac6d6962fb9f3748c0c2094" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-14.jpg"><img src="img/p7/p7-14.jpg" alt="1986 피트니스 현장 사진 14" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="ddad29c6225c4911c34fe19571fcbfe9" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-15.jpg"><img src="img/p7/p7-15.jpg" alt="1986 피트니스 현장 사진 15" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="3c307a2c935253c5a1155066603f0873" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-16.jpg"><img src="img/p7/p7-16.jpg" alt="1986 피트니스 현장 사진 16" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="9fa20246f3e3c2089718e3f280b8830b" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-17.jpg"><img src="img/p7/p7-17.jpg" alt="1986 피트니스 현장 사진 17" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="00b04a286ee1d2e07a1ccb471609954d" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-18.jpg"><img src="img/p7/p7-18.jpg" alt="1986 피트니스 현장 사진 18" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="0679f5fc75ac0ba6f20c28fae772b061" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-19.jpg"><img src="img/p7/p7-19.jpg" alt="1986 피트니스 현장 사진 19" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="b5f2affad452b95bb2f32eaa21daec85" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-20.jpg"><img src="img/p7/p7-20.jpg" alt="1986 피트니스 현장 사진 20" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="bb46d9d240a9f0c36921c931dc13e955" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-21.jpg"><img src="img/p7/p7-21.jpg" alt="1986 피트니스 현장 사진 21" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="edd103a6f935377af3916a07156b102f" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-22.jpg"><img src="img/p7/p7-22.jpg" alt="1986 피트니스 현장 사진 22" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="222c3e17372c69a443bcaf81a554201f" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-23.jpg"><img src="img/p7/p7-23.jpg" alt="1986 피트니스 현장 사진 23" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="8161cdf6057b8cd6bcf026a06ec83eae" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-24.jpg"><img src="img/p7/p7-24.jpg" alt="1986 피트니스 현장 사진 24" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="6e4463735552142f6a4865ae93fce87e" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-25.jpg"><img src="img/p7/p7-25.jpg" alt="1986 피트니스 현장 사진 25" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5960f7806b1017fab8800edfa3af8a32" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-26.jpg"><img src="img/p7/p7-26.jpg" alt="1986 피트니스 현장 사진 26" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="083eec3d188c96509dac09fd34662cfc" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-27.jpg"><img src="img/p7/p7-27.jpg" alt="1986 피트니스 현장 사진 27" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="cde626521a67bd55eacda5ec83d45f5b" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-28.jpg"><img src="img/p7/p7-28.jpg" alt="1986 피트니스 현장 사진 28" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="805141f38b85d6d21afe3037df8b344c" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-29.jpg"><img src="img/p7/p7-29.jpg" alt="1986 피트니스 현장 사진 29" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="08ef505d80f87c2cc354055a0aa3030d" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-30.jpg"><img src="img/p7/p7-30.jpg" alt="1986 피트니스 현장 사진 30" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="bcf104480bc64a9e3de279c80be7fb48" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-31.jpg"><img src="img/p7/p7-31.jpg" alt="1986 피트니스 현장 사진 31" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e5c6dd14eabc99bd4fac38e08ca44853" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-32.jpg"><img src="img/p7/p7-32.jpg" alt="1986 피트니스 현장 사진 32" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="7dc409ec1e2a69719bc426a67988cdb6" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-33.jpg"><img src="img/p7/p7-33.jpg" alt="1986 피트니스 현장 사진 33" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="5640fcb3ac7cd61607aa6b96f9525e6c" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-34.jpg"><img src="img/p7/p7-34.jpg" alt="1986 피트니스 현장 사진 34" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="06b7b6931683ea5d53adbd98b5976b2d" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-35.jpg"><img src="img/p7/p7-35.jpg" alt="1986 피트니스 현장 사진 35" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="22ee130cbf811079073340657a094d39" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-36.jpg"><img src="img/p7/p7-36.jpg" alt="1986 피트니스 현장 사진 36" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="115cae01c0e97d1c96c808f945de8e24" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-37.jpg"><img src="img/p7/p7-37.jpg" alt="1986 피트니스 현장 사진 37" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="64cd01b9e4d96a0104f48ac040e382be" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-38.jpg"><img src="img/p7/p7-38.jpg" alt="1986 피트니스 현장 사진 38" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="d4716f6fbb8c904a79d3fe87b768f926" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-39.jpg"><img src="img/p7/p7-39.jpg" alt="1986 피트니스 현장 사진 39" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="e3a8294344280004c550b494399e2c65" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-40.jpg"><img src="img/p7/p7-40.jpg" alt="1986 피트니스 현장 사진 40" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+          <div class="added-item" data-img-id="7a24c4174a161b534b816d3c03511c8b" data-baked="1"><button type="button" class="shot" data-full="img/p7/p7-41.jpg"><img src="img/p7/p7-41.jpg" alt="1986 피트니스 현장 사진 41" loading="lazy"></button><button type="button" class="rm" aria-label="이 사진 빼기">빼기</button></div>
+        </div>
+          <div class="gallery masonry added" data-project="p7"></div>
+          <div class="add-bar" data-project="p7"><button type="button" class="add-photo">+ 현장 사진 추가</button><button type="button" class="add-sketch">+ 스케치 이미지 넣기</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <section class="cta" id="contact-section">
+    <div class="wrap">
+      <div class="label">공간문의</div>
+      <h2>원하시는 공간 이야기를<br>들려주세요.</h2>
+      <p><span class="ln">공간과 일정, 궁금하신 점을 편하게 남겨주세요.</span></p>
+      <button type="button" class="btn" id="realize" aria-expanded="false" aria-controls="contact">문의하기</button>
+      <div class="contact" id="contact" hidden>
+        <div class="row"><span class="label">Phone</span><span><a href="tel:010-9945-4998">010-9945-4998</a></span></div>
+        <div class="row"><span class="label">Instagram</span><span><a href="https://www.instagram.com/studio_designgray/">@studio_designgray</a></span></div>
+        <div class="row"><span class="label">E-mail</span><span><a href="mailto:designgray_su@naver.com">designgray_su@naver.com</a></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>the Gray Design Studio<br>더그레이디자인스튜디오 · 대표 김수빈<br>사업자등록번호 165-24-01597 · 강동구 천중로 213</div>
+    <div>© 2026 the Gray Design Studio</div>
+  </div>
+</footer>
+
+<button type="button" class="edit-fab" id="edit-fab" hidden>편집</button>
+<div class="edit-bar" id="edit-bar" role="region" aria-label="편집 도구" hidden>
+  <div class="msg" id="edit-msg" aria-live="polite">편집 모드 · 점선 표시된 글자를 눌러 바로 고치세요.</div>
+  <button type="button" class="primary" id="edit-copy">수정 내용 복사</button>
+  <button type="button" id="edit-reset">처음 문구로</button>
+  <button type="button" id="edit-close">편집 끝내기</button>
+</div>
+
+<input type="file" id="file-in" accept="image/*" multiple hidden>
+<dialog id="viewer" class="viewer" aria-label="현장 사진과 시공 이야기">
+  <div class="vw">
+    <figure class="vw-img">
+      <img id="viewer-img" src="" alt="">
+      <div class="vw-nav">
+        <button type="button" id="vw-prev" aria-label="이전 사진">‹</button>
+        <span id="vw-count">1 / 1</span>
+        <button type="button" id="vw-next" aria-label="다음 사진">›</button>
+      </div>
+    </figure>
+    <aside class="vw-info">
+      <button type="button" class="vw-close" id="viewer-close">CLOSE</button>
+      <div class="label" id="vw-num">WORKS</div>
+      <h3 id="vw-title"></h3>
+      <div class="meta" id="vw-meta"></div>
+      <div id="vw-voice"></div>
+      <div class="story-copy" id="vw-story"></div>
+    </aside>
+  </div>
+</dialog>
+
+<script>
+  (function(){
+    var header = document.getElementById('top');
+    window.addEventListener('scroll', function(){
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, {passive:true});
+
+    var btn = document.getElementById('realize');
+    var panel = document.getElementById('contact');
+    btn.addEventListener('click', function(){
+      if (document.body.classList.contains('editing')) return;
+      var open = panel.hasAttribute('hidden');
+      if (open) { panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden',''); }
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    var dlg = document.getElementById('viewer');
+    var big = document.getElementById('viewer-img');
+    var shots = [], idx = 0;
+    function showShot(){
+      var b = shots[idx]; if (!b) return;
+      var im = b.querySelector('img');
+      big.src = b.getAttribute('data-full') || (im ? im.src : '');
+      big.alt = im ? im.alt : '';
+      document.getElementById('vw-count').textContent = (idx + 1) + ' / ' + shots.length;
+    }
+    function fillInfo(art){
+      var num = art.querySelector('.num');
+      document.getElementById('vw-num').textContent = num ? num.textContent.trim() : 'WORKS';
+      var h = art.querySelector('.head h3');
+      document.getElementById('vw-title').innerHTML = h ? h.innerHTML : '';
+      var m = art.querySelector('.head .meta');
+      document.getElementById('vw-meta').innerHTML = m ? m.innerHTML : '';
+      var v = art.querySelector('.story .voice:not(.todo)');
+      document.getElementById('vw-voice').innerHTML = v ? v.outerHTML : '';
+      var story = document.getElementById('vw-story'); story.innerHTML = '';
+      art.querySelectorAll('.story > p:not(.todo)').forEach(function(p){
+        var c = document.createElement('p'); c.innerHTML = p.innerHTML; story.appendChild(c);
+      });
+      document.querySelectorAll('#viewer [contenteditable]').forEach(function(x){ x.removeAttribute('contenteditable'); });
+      document.querySelectorAll('#viewer [data-edit]').forEach(function(x){ x.removeAttribute('data-edit'); });
+    }
+    document.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('.gallery .shot') : null;
+      if (!b) return;
+      var art = b.closest('article');
+      shots = art ? Array.prototype.slice.call(art.querySelectorAll('.gallery .added-item:not(.removed) .shot')) : [b];
+      idx = Math.max(0, shots.indexOf(b));
+      if (art) fillInfo(art);
+      showShot();
+      try { dlg.showModal(); } catch (err) { dlg.setAttribute('open',''); }
+    });
+    document.getElementById('vw-prev').addEventListener('click', function(){ idx = (idx - 1 + shots.length) % shots.length; showShot(); });
+    document.getElementById('vw-next').addEventListener('click', function(){ idx = (idx + 1) % shots.length; showShot(); });
+    dlg.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') { idx = (idx - 1 + shots.length) % shots.length; showShot(); }
+      if (e.key === 'ArrowRight') { idx = (idx + 1) % shots.length; showShot(); }
+    });
+    function closeDlg(){ try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); } }
+    document.getElementById('viewer-close').addEventListener('click', closeDlg);
+
+    /* drawing animation: start when the section comes into view */
+    var art = document.getElementById('rel-art');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { art.classList.add('play'); io.disconnect(); }
+        });
+      }, {threshold:0.45});
+      io.observe(art);
+    } else {
+      art.classList.add('play');
+    }
+  })();
+</script>
+
+<script>
+  /* ---------- edit mode: only the owner (or editors) see it ---------- */
+  (function(){
+    var GROUPS = [
+      ['.hero .statement','첫 화면 · 한 줄 소개'],
+      ['.hero .sub','첫 화면 · 보조 문구'],
+      ['.intro h2','소개 · 제목'],
+      ['.intro p','소개 · 본문'],
+      ['.intro .ground span','소개 · 바탕색 설명'],
+      ['.relation h2','관계 · 큰 제목'],
+      ['.relation .lead','관계 · 설명'],
+      ['.process h3','일하는 방식 · 제목'],
+      ['.process .sub','일하는 방식 · 부제'],
+      ['.process li strong','일하는 방식 · 단계 이름'],
+      ['.process li span','일하는 방식 · 단계 설명'],
+      ['.project h3','현장 · 제목'],
+      ['.project .meta > span','현장 · 정보'],
+      ['.project .taste span','현장 · 이 집의 색'],
+      ['.project .story p','현장 · 이야기'],
+      ['.project .sketch strong','현장 · 스케치 제목'],
+      ['.project .sketch span','현장 · 스케치 설명'],
+      ['.cta > .wrap > .label','문의 · 작은 제목'],
+      ['.cta h2','문의 · 큰 제목'],
+      ['.cta > .wrap > p','문의 · 설명'],
+      ['#realize','문의 · 버튼 글자'],
+      ['.contact .row > span:last-child','문의 · 연락처'],
+      ['footer .wrap > div','하단 · 회사 정보'],
+      ['.works-head h2','작업 · 제목'],
+      ['.sector .bar h2','작업 · 분야 이름'],
+      ['.empty p','상업 · 준비 중 안내']
+    ];
+    var items = [];
+    GROUPS.forEach(function(g, gi){
+      document.querySelectorAll(g[0]).forEach(function(el, i){
+        var art = el.closest('article');
+        var where = g[1];
+        if (art) { var n = art.querySelector('.num'); where = where.replace('현장', '현장 ' + (n ? n.textContent.trim() : '')); }
+        var key = 'g' + gi + '-' + i;
+        el.setAttribute('data-edit', key);
+        items.push({ key:key, el:el, where: where + ' ' + (i + 1), original: el.innerText.trim() });
+      });
+    });
+
+    var fab = document.getElementById('edit-fab');
+    var bar = document.getElementById('edit-bar');
+    var msg = document.getElementById('edit-msg');
+    var db = null;
+
+    function say(t){ msg.textContent = t; }
+    function setText(el, t){ el.textContent = t; el.style.whiteSpace = 'pre-line'; }
+    function changes(){
+      return items.filter(function(it){ return it.el.innerText.trim() !== it.original; })
+        .map(function(it){ return { key:it.key, where:it.where, before:it.original, after:it.el.innerText.trim() }; });
+    }
+    function markChanged(){
+      items.forEach(function(it){ it.el.classList.toggle('changed', it.el.innerText.trim() !== it.original); });
+    }
+
+    function enter(){
+      document.body.classList.add('editing');
+      items.forEach(function(it){
+        try { it.el.contentEditable = 'plaintext-only'; } catch (e) { it.el.contentEditable = 'true'; }
+        if (it.el.contentEditable !== 'plaintext-only') it.el.contentEditable = 'true';
+        it.el.addEventListener('input', markChanged);
+      });
+      var panel = document.getElementById('contact');
+      panel.removeAttribute('hidden');
+      fab.hidden = true; bar.hidden = false;
+      say('편집 모드 · 점선 표시된 글자를 눌러 바로 고치세요. 사진은 각 현장 아래 "+ 현장 사진 추가"로 넣을 수 있어요.');
+      loadDraft();
+      loadImages();
+    }
+    function exit(){
+      document.body.classList.remove('editing');
+      items.forEach(function(it){ it.el.removeAttribute('contenteditable'); it.el.classList.remove('changed'); });
+      bar.hidden = true; fab.hidden = false;
+    }
+
+    /* ---- images: upload in edit mode, kept as a draft until Claude bakes them in ---- */
+    var assets = null;
+    var imgs = [];          // [{id,url,project,slot,name,addedAt}]
+    var removed = [];       // ids of published photos taken out in edit mode
+    var rendered = {};
+    var imgsLoaded = false;
+    var fileIn = document.getElementById('file-in');
+    var pending = { project:null, slot:null };
+    var sketchOriginal = {};
+    document.querySelectorAll('.sketch').forEach(function(b){ sketchOriginal[b.getAttribute('data-project')] = b.innerHTML; });
+
+    function readDoc(path){
+      return db.doc(path).get().then(function(s){
+        return s && typeof s.data === 'function' ? s.data() : (s && s.data !== undefined ? s.data : s);
+      }).catch(function(){ return null; });
+    }
+    function uniq(arr){ var seen = {}; return arr.filter(function(x){ var k = x && x.id ? x.id : x; if (seen[k]) return false; seen[k] = 1; return true; }); }
+    function saveImages(){
+      if (!db) return Promise.resolve();
+      function attempt(){
+        /* read first so the write is based on the latest saved list (another window or Claude may have changed it) */
+        return readDoc('edits/images').then(function(d){
+          var remoteItems = (d && Array.isArray(d.items)) ? d.items : [];
+          var remoteRemoved = (d && Array.isArray(d.removed)) ? d.removed : [];
+          var localIds = imgs.map(function(x){ return x.id; });
+          var keepRemote = remoteItems.filter(function(x){ return localIds.indexOf(x.id) < 0 && dropped.indexOf(x.id) < 0; });
+          imgs = uniq(imgs.concat(keepRemote));
+          removed = uniq(removed.concat(remoteRemoved));
+          return db.doc('edits/images').set({ items: imgs, removed: removed, savedAt: new Date().toISOString() });
+        });
+      }
+      return attempt().catch(function(){ return new Promise(function(r){ setTimeout(r, 800); }).then(attempt); });
+    }
+    var dropped = [];
+    function removeBaked(id){
+      if (removed.indexOf(id) < 0) removed.push(id);
+      var node = document.querySelector('[data-img-id="' + id + '"]');
+      if (node) node.classList.add('removed');
+      saveImages().then(function(){ say('사진을 뺐어요. "수정 내용 복사" 후 Claude에게 붙여넣으면 방문객 화면에서도 빠집니다.'); }).catch(function(){ say('사진 목록을 저장하지 못했어요.'); });
+    }
+    document.querySelectorAll('.added-item[data-baked] .rm').forEach(function(b){
+      b.addEventListener('click', function(e){ e.stopPropagation(); removeBaked(b.parentNode.getAttribute('data-img-id')); });
+    });
+    function removeImg(id){
+      var it = imgs.filter(function(x){ return x.id === id; })[0];
+      imgs = imgs.filter(function(x){ return x.id !== id; });
+      if (dropped.indexOf(id) < 0) dropped.push(id);
+      var node = document.querySelector('[data-img-id="' + id + '"]');
+      if (it && it.slot === 'sketch') {
+        var box = document.querySelector('.sketch[data-project="' + it.project + '"]');
+        if (box) { box.innerHTML = sketchOriginal[it.project] || ''; box.classList.remove('has-img'); }
+      } else if (node) { node.remove(); }
+      delete rendered[id];
+      if (db) { try { db.doc('edits/img-' + id).delete().catch(function(){}); } catch (e) {} }
+      saveImages().then(function(){ say('사진을 뺐어요.'); }).catch(function(){ say('사진 목록을 저장하지 못했어요.'); });
+      if (assets) { try { assets.delete(id).catch(function(){}); } catch (e) {} }
+    }
+    function rmButton(id){
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'rm'; rm.textContent = '빼기';
+      rm.setAttribute('aria-label', '이 사진 빼기');
+      rm.addEventListener('click', function(e){ e.stopPropagation(); removeImg(id); });
+      return rm;
+    }
+    function renderImg(it){
+      if (rendered[it.id]) return;
+      rendered[it.id] = true;
+      if (it.slot === 'sketch') {
+        var box = document.querySelector('.sketch[data-project="' + it.project + '"]');
+        if (!box) return;
+        box.innerHTML = '';
+        box.classList.add('has-img');
+        box.style.position = 'relative';
+        box.setAttribute('data-img-id', it.id);
+        var si = document.createElement('img');
+        si.src = it.url; si.alt = '현장 스케치';
+        box.appendChild(si); box.appendChild(rmButton(it.id));
+        return;
+      }
+      var wrap = document.querySelector('.added[data-project="' + it.project + '"]');
+      if (!wrap) return;
+      var item = document.createElement('div');
+      item.className = 'added-item'; item.setAttribute('data-img-id', it.id);
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'shot'; b.setAttribute('data-full', it.url);
+      var im = document.createElement('img');
+      im.src = it.url; im.alt = '현장 사진'; im.loading = 'lazy';
+      b.appendChild(im); item.appendChild(b); item.appendChild(rmButton(it.id));
+      wrap.appendChild(item);
+    }
+    function loadImages(){
+      if (!db || imgsLoaded) return;
+      db.doc('edits/images').get().then(function(s){
+        imgsLoaded = true;
+        var d = s && typeof s.data === 'function' ? s.data() : (s && s.data !== undefined ? s.data : s);
+        imgs = (d && Array.isArray(d.items)) ? d.items : [];
+        removed = (d && Array.isArray(d.removed)) ? d.removed : [];
+        imgs.forEach(renderImg);
+        removed.forEach(function(id){ var n = document.querySelector('[data-img-id="' + id + '"]'); if (n) n.classList.add('removed'); });
+      }).catch(function(){ imgsLoaded = true; });
+    }
+    function shrink(file){
+      return new Promise(function(resolve){
+        if (!window.createImageBitmap) { resolve(file); return; }
+        createImageBitmap(file, { imageOrientation:'from-image' }).then(function(bmp){
+          var max = 3200, sc = Math.min(1, max / Math.max(bmp.width, bmp.height));
+          var c = document.createElement('canvas');
+          c.width = Math.round(bmp.width * sc); c.height = Math.round(bmp.height * sc);
+          c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+          c.toBlob(function(bl){ resolve(bl || file); }, 'image/jpeg', 0.92);
+        }).catch(function(){ resolve(file); });
+      });
+    }
+    function pick(project, slot){
+      if (!assets) { say('사진은 Claude 대화창에 보내 주시면 넣어 드릴게요.'); return; }
+      pending = { project:project, slot:slot };
+      fileIn.multiple = slot !== 'sketch';
+      fileIn.value = '';
+      fileIn.click();
+    }
+    document.querySelectorAll('.add-bar').forEach(function(bar){
+      var pj = bar.getAttribute('data-project');
+      bar.querySelector('.add-photo').addEventListener('click', function(){ pick(pj, 'gallery'); });
+      bar.querySelector('.add-sketch').addEventListener('click', function(){ pick(pj, 'sketch'); });
+    });
+    fileIn.addEventListener('change', async function(){
+      var files = Array.prototype.slice.call(fileIn.files || []);
+      if (!files.length) return;
+      var pj = pending.project, slot = pending.slot, ok = 0, saved1 = 0;
+      for (var i = 0; i < files.length; i++) {
+        say('사진 올리는 중… (' + (i + 1) + ' / ' + files.length + ')');
+        try {
+          var blob = await shrink(files[i]);
+          var res = await assets.upload(blob);
+          if (slot === 'sketch') {
+            imgs.filter(function(x){ return x.project === pj && x.slot === 'sketch'; }).forEach(function(x){
+              imgs = imgs.filter(function(y){ return y.id !== x.id; }); delete rendered[x.id]; dropped.push(x.id);
+            });
+          }
+          var it = { id:res.id, url:res.url || ('/_blob/' + res.id), project:pj, slot:slot, name:files[i].name, addedAt:new Date().toISOString() };
+          imgs.push(it); renderImg(it); ok++;
+          if (db) try { await db.doc('edits/img-' + res.id).set({ kind:'img', id:it.id, url:it.url, project:pj, slot:slot, name:it.name, addedAt:it.addedAt }); saved1++; } catch (e2) {}
+        } catch (e) {
+          say('"' + files[i].name + '"을(를) 올리지 못했어요. JPG나 PNG로 다시 시도해 주세요.');
+        }
+      }
+      if (ok) {
+        var listOk = true;
+        try { await saveImages(); } catch (e) { listOk = false; }
+        if (!db) say('사진 ' + ok + '장을 올렸어요. Claude에게 "홈페이지 수정 반영해줘"라고 말씀해 주세요.');
+        else if (listOk || saved1 === ok) say('사진 ' + ok + '장을 넣고 저장했어요. Claude에게 "홈페이지 수정 반영해줘"라고 말씀해 주세요.');
+        else say('사진 ' + ok + '장은 올라갔어요. 목록 저장이 일부 실패했지만 Claude가 찾아서 넣을 수 있어요. "홈페이지 수정 반영해줘"라고 말씀해 주세요.');
+      }
+    });
+
+    function loadDraft(){
+      if (!db) return;
+      var done = false;
+      var timer = setTimeout(function(){ if (!done) say('저장된 수정본을 불러오지 못했어요. 지금 화면에서 계속 고치셔도 됩니다.'); }, 10000);
+      db.doc('edits/draft').get().then(function(s){
+        done = true; clearTimeout(timer);
+        var d = s && typeof s.data === 'function' ? s.data() : (s && s.data !== undefined ? s.data : s);
+        if (!d || !d.changes || !d.changes.length) return;
+        d.changes.forEach(function(c){
+          var it = items.filter(function(x){ return x.key === c.key; })[0];
+          if (it && typeof c.after === 'string') setText(it.el, c.after);
+        });
+        markChanged();
+        say('지난번에 저장한 수정본을 불러왔어요. 이어서 고치세요.');
+      }).catch(function(){ done = true; clearTimeout(timer); });
+    }
+
+    document.getElementById('edit-copy').addEventListener('click', function(){
+      var list = changes();
+      var pname = function(pj){ var a = document.getElementById(pj); var h = a && a.querySelector('h3'); return h ? h.innerText.replace(/\s+/g,' ').trim() : pj; };
+      var parts = list.map(function(c){
+        return '■ ' + c.where + '\n- 기존: ' + c.before.replace(/\n/g,' / ') + '\n- 수정: ' + c.after.replace(/\n/g,' / ');
+      });
+      var gone = uniq(removed.concat(dropped));
+      if (gone.length) parts.push('■ 뺄 사진\n' + gone.map(function(id){ return '- ' + id; }).join('\n'));
+      if (imgs.length) parts.push('■ 새로 올린 사진\n' + imgs.map(function(x){ return '- ' + x.id + ' → ' + pname(x.project) + (x.slot === 'sketch' ? ' (스케치)' : ''); }).join('\n'));
+      if (!parts.length) { say('아직 바뀐 곳이 없어요.'); return; }
+      var text = '[홈페이지 수정 요청]\n' + parts.join('\n\n');
+      var fallback = function(){
+        var ta = document.getElementById('copy-box');
+        if (!ta) { ta = document.createElement('textarea'); ta.id = 'copy-box'; ta.readOnly = true; ta.style.cssText = 'display:block;width:100%;height:140px;margin-top:10px;font:13px/1.5 inherit;'; document.getElementById('edit-bar').appendChild(ta); }
+        ta.value = text; ta.focus(); ta.select();
+        say('아래 글을 길게 눌러 모두 선택 → 복사한 뒤, Claude 대화창에 붙여넣어 주세요.');
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){
+          say('복사했어요. Claude 대화창에 붙여넣고 "수정 반영해줘"라고 보내 주세요.');
+        }).catch(fallback);
+      } else { fallback(); }
+    });
+
+    document.getElementById('edit-reset').addEventListener('click', function(){
+      items.forEach(function(it){ if (it.el.innerText.trim() !== it.original) setText(it.el, it.original); });
+      markChanged();
+      say('처음 문구로 되돌렸어요.');
+    });
+    document.getElementById('edit-close').addEventListener('click', exit);
+    fab.addEventListener('click', enter);
+
+    if (/[?&]edit\b/.test(location.search)) { fab.hidden = false; }
+    if (window.claude && typeof window.claude.use === 'function') {
+      // Visitors never touch db/assets: only the owner (editor) loads them.
+      window.claude.use('user').catch(function(){ return null; }).then(function(user){
+        if (!user) return;
+        var a, b;
+        try { a = user.isOwner(); } catch (e) { a = false; }
+        try { b = user.canEdit(); } catch (e) { b = false; }
+        Promise.all([Promise.resolve(a), Promise.resolve(b)]).then(function(v){
+          if (!(v[0] || v[1])) return;
+          return window.claude.use('assets').catch(function(){ return null; }).then(function(a){ assets = a; fab.hidden = false; });
+        }).catch(function(){});
+      });
+    }
+  })();
+</script>
+</body>
+</html>
